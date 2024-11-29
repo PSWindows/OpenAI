@@ -1,0 +1,9 @@
+Our working patch is C:\LlamaIndex
+Create a folder called C:\LlamaIndex\static
+Inside paste "style.css"
+create a folder C:\LlamaIndex\templates
+Inside paste "index.html"
+On the root of the folder C:\LlamaIndex
+paste "chatBotWeb.py"
+
+Run the chatBotWeb
