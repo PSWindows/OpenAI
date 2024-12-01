@@ -1,0 +1,45 @@
+--- sql query to create tables
+
+CREATE DATABASE db_inventory;
+USE db_inventory;
+
+CREATE TABLE tbl_os (
+    tbl_OS_ID INT PRIMARY KEY,
+    OSName VARCHAR(50)
+);
+
+-- Insert data into tbl_os
+INSERT INTO tbl_os (tbl_OS_ID, OSName)
+VALUES
+    (1, 'Server 2008'),
+    (2, 'Server 2012'),
+    (3, 'Server 2016'),
+    (4, 'Server 2019'),
+    (5, 'Server 2003'),
+    (6, 'Server 2022'),
+    (7, 'Server 2025');
+
+CREATE TABLE tbl_inventory (
+    ServerName VARCHAR(50),
+    IP VARCHAR(15),
+    Location VARCHAR(50),
+    ApplicationRunning VARCHAR(50),
+    Owner VARCHAR(50),
+    tbl_inventory_OS_ID INT,
+    FOREIGN KEY (tbl_inventory_OS_ID) REFERENCES tbl_os(tbl_OS_ID)
+);
+
+-- Insert data into tbl_inventory
+INSERT INTO tbl_inventory (ServerName, IP, Location, ApplicationRunning, Owner, tbl_inventory_OS_ID)
+VALUES
+    ('Server1', '192.168.1.1', 'New York', 'WebApp', 'Alice', 1),
+    ('Server2', '192.168.1.2', 'Toronto', 'Database', 'Bob', 1),
+    ('Server3', '192.168.1.3', 'London', 'FileServer', 'Charlie', 2),
+    ('Server4', '192.168.1.4', 'Sydney', 'MailServer', 'Diana', 3),
+    ('Server5', '192.168.1.5', 'Mumbai', 'Backup', 'Ethan', 1),
+    ('Server6', '192.168.1.6', 'Berlin', 'CRM', 'Fiona', 4),
+    ('Server7', '192.168.1.7', 'Tokyo', 'ERP', 'George', 5),
+    ('Server8', '192.168.1.8', 'Paris', 'DevOps', 'Helen', 6),
+    ('Server9', '192.168.1.9', 'San Francisco', 'Analytics', 'Ian', 7),
+    ('Server10', '192.168.1.10', 'Singapore', 'AI Model', 'Julia', 2),
+    ('Server11', '192.168.1.11', 'Singapore', 'Database', 'Bob', 1);
