@@ -1,0 +1,16 @@
+-- Finally
+-- Join tbl_inventory and tbl_os to see the relationship
+SELECT 
+    i.ServerName,
+    i.IP,
+    i.Location,
+    i.ApplicationRunning,
+    i.Owner,
+    i.tbl_inventory_OS_ID,
+    o.OSName
+FROM 
+    tbl_inventory i
+JOIN 
+    tbl_os o
+ON 
+    i.tbl_inventory_OS_ID = o.tbl_OS_ID;
