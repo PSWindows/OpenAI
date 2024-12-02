@@ -1,3 +1,5 @@
+show databases;
+use db_inventory;
 -- Finally
 -- Join tbl_inventory and tbl_os to see the relationship
 SELECT 
