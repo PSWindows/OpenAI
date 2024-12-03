@@ -8,6 +8,9 @@ If you don't know which table you'll query or if the schema is too large for the
 each table schema into "Node" objects. These nodes are stored in an ObjectIndex. At query time, the index retrieves only the relevant schema, 
 optimizing memory usage and ensuring efficient, dynamic query execution.
 """
+#pip install sqlalchemy llama-index
+#pip install pymysql
+
 import os
 from dotenv import load_dotenv
 from llama_index.core import SQLDatabase
