@@ -26,14 +26,6 @@ db_name = "db_inventory"
 connection_string = f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}"
 engine = create_engine(connection_string)
 
-load_dotenv()
-
-api_key=os.getenv("OPENAI_API_KEY")
-
-llm = OpenAI(
-    model="gpt-3.5-turbo",
-    openai_api_key=os.getenv("OPENAI_API_KEY")
-)
 
 # here we define our SQLDatabase abstraction (a light wrapper around SQLAlchemy)
 sql_database = SQLDatabase(engine, include_tables=["tbl_inventory", "tbl_os"])
@@ -69,8 +61,8 @@ query_engine = SQLTableRetrieverQueryEngine(
     sql_database, obj_index.as_retriever(similarity_top_k=3)
 )
 
-#query_str = "give me all the server info including os in CSV format."
-query_str = "Bob manages what server and give all the details in CSV format"
+query_str = "give me all the server inventory including os in CSV format."
+#query_str = "Bob manages what server and give all the details in CSV format"
 response = query_engine.query(query_str)
 
 print(response)
